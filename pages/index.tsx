@@ -23,13 +23,12 @@ const test_recipient = "0xdbe83c0d3fb9c8215ae309dc9a4fc176a099a1ca";
 
 const Content = () => {
   const address = useAddress();
-  const { contract } = useContract(USDT_POLYGON_ADDR, usdt_abi);
+  const { contract } = useContract(USDT_POLYGON_ADDR);
   const { mutate: transferUSDT } = useTransferToken(contract);
   console.log({ contract, transferUSDT });
   return (
     <>
       <ConnectWallet />
-
       <button
         onClick={() => {
           if (!address) return alert("not connected");
